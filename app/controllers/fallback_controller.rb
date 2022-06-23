@@ -3,7 +3,12 @@
 class FallbackController < ActionController::Base
 
   def index
-    # React app index page
-    render file: 'public/index.html'
+    # This might not be needed [React app index page]
+    # render file: 'public/index.html'
+
+    # initial login session setup
+    session[:session_hello] ||= "World"
+    cookies[:cookies_hello] ||= "World"
+    render json: { session: session, cookies: cookies.to_hash }
   end
 end
