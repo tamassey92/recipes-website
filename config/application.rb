@@ -21,6 +21,10 @@ Bundler.require(*Rails.groups)
 
 module ReactRailsApiProjectTemplate
   class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 6.1
+    # This is set in apps generated with the --api flag, and removes session/cookie middleware
+    config.api_only = true
     # Adding cookies and session middleware
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
