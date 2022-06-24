@@ -11,7 +11,7 @@ body {
 a {
     text-decoration: none;
 }
-
+/* ---------------NAV BAR-------- */
 nav {
     display: flex;
     justify-content: space-around;
@@ -59,15 +59,13 @@ nav {
     color: white;
     display: none;
 }
-
+/* -------main--- */
 .main {
     background: radial-gradient(at center center, #2d7e9270 0%, #1c40617c 100%), url(./background-img.jpg);
     height: 100vh;
-   
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-   
 }
 
 
@@ -92,9 +90,71 @@ nav {
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
     }
-
+    
     .active {
         transform: translateX(0%);
     }
 }
 
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid > article {
+        text-align: center;
+    }
+}
+
+/* ------------------------------------Recipe Card----------- */
+
+.grid {
+    margin: 88px;
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    align-items: center;
+    place-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.grid > article {
+    background: #eee5e9;
+    border: none;
+    box-shadow: 2 px 2 px 6px 8px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    text-align: center;
+    width: 250px;
+    transition: transform .3s;    
+}
+
+.grid > article:hover{
+    transform: translateY(5px);
+    box-shadow: 2px 2px 26px 0px rgba(0,0,0,0.3);
+}
+
+.grid > article img{
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.title {
+    padding: 0 20px 20px;
+}
+
+.title h3{
+    text-transform: uppercase;
+}
+
+.title button{
+    background: black;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
