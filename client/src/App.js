@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from './components/Navbar';
 import RecipeCard from './components/RecipeCard';
+import RecipeList from './components/RecipeList'
 import "./App.css"
 
 const App = () => {
@@ -91,6 +92,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
+      <RecipeList />
 
       {/* <RecipeCard /> */}
       
