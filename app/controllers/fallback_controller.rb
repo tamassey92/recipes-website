@@ -7,7 +7,7 @@ class FallbackController < ActionController::Base
     # render file: 'public/index.html'
 
     # initial login session setup
-    session[:session_hello] ||= "World"
+    session[:user_id] ||= "World"
     cookies[:cookies_hello] ||= "World"
     render json: { session: session, cookies: cookies.to_hash }
   end

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
   # login session route
   get "/sessions", to: "sessions#index"
+  post "/login", to: "sessions#create"
 end

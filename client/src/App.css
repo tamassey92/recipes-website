@@ -1,0 +1,14 @@
+
+:root {
+    --color-bg: #1f1f38;
+    --color-white: #fff; 
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background: var(--color-white);
+    color: var(--color-bg);
+    line-height: 1.7;
+  }
+  
+  
