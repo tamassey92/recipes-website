@@ -9,7 +9,7 @@ function Auth({setUser, setIsAuthenticated}) {
     function onSubmit(e){
         e.preventDefault()
         const user = {
-            name: username,
+            username,
             password
         }
        
@@ -22,6 +22,7 @@ function Auth({setUser, setIsAuthenticated}) {
           if(res.ok){
             res.json()
             .then(user=>{
+              console.log(user)
               setUser(user)
               setIsAuthenticated(true)
             })
@@ -39,7 +40,7 @@ function Auth({setUser, setIsAuthenticated}) {
         <label>
           Username
     
-        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
         </label>
         <label>
          Password

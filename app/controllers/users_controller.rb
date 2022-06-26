@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    skip_before_action :is_authorized?, except: [:create]
+
+    before_action :is_authorized?, except: [:create]
     before_action :is_admin?, only: [:update, :destroy]
 
     # GET "/users"
@@ -15,9 +16,13 @@ class UsersController < ApplicationController
     
     # POST "/users"
     def create
-        user = User.create(user_params)
-        render json: user, status: :created
-    end
+        @user = User.new(username: user_params[:username])
+        @user.password = user_params[:password]
+        @user.save!
+        session[:current_user] = @user.id
+        session[:login_attempts] = 0
+        render json: @user, status: :created
+      end
 
     # PUT "/users/:id"
     def update
@@ -36,6 +41,6 @@ class UsersController < ApplicationController
     private
     
     def user_params
-        params.permit([:username, :password])
+        params.require(:user).permit(:username, :password)
     end
 end

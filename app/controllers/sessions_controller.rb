@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     before_action :authorize_user, except: [:login]
 
     def login
-        user = User.find_by(name:params[:username])
+        user = User.find_by(username: params[:username])
         
         if user&.authenticate(params[:password])
 
@@ -37,17 +37,4 @@ class SessionsController < ApplicationController
     def logout
         session.delete :current_user
     end 
-  
-    def index
-      session[:user_id] ||= "user id"
-      cookies[:cookies_hello] ||= "cookies"
-      render json: { session: session, cookies: cookies.to_hash }
-    end
-
-    def create
-        user = User.find_by(username: params[:username])
-        session[:user_id] = user.id
-        render json: user
-    end
-  
   end
