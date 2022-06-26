@@ -12,7 +12,6 @@ function SignUp({setCurrentUser}) {
             username,
             password
         }
-       
         fetch(`/users`,{
           method:'POST',
           headers:{'Content-Type': 'application/json'},
