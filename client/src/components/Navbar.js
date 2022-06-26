@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Navbar = ({setIsAuthenticated, setUser }) => {
+const Navbar = ({setCurrentUser }) => {
 
     const [navLinkOpen, navLinkToggle] = useState(false);
     
@@ -23,8 +23,7 @@ const Navbar = ({setIsAuthenticated, setUser }) => {
             method:'DELETE'
         })
         .then(()=>{
-            setIsAuthenticated(false)
-            setUser(null)
+            setCurrentUser(null)
         })
     }
 

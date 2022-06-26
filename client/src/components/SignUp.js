@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function Auth({setUser, setIsAuthenticated}) {
+function SignUp({setCurrentUser}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
    
@@ -22,9 +22,7 @@ function Auth({setUser, setIsAuthenticated}) {
           if(res.ok){
             res.json()
             .then(user=>{
-              console.log(user)
-              setUser(user)
-              setIsAuthenticated(true)
+              setCurrentUser(user)
             })
             
           } else {
@@ -33,6 +31,7 @@ function Auth({setUser, setIsAuthenticated}) {
           }
         })
     }
+    
     return (
         <> 
         <h1>Sign Up</h1>
@@ -55,4 +54,4 @@ function Auth({setUser, setIsAuthenticated}) {
     )
 }
 
-export default Auth;
+export default SignUp;

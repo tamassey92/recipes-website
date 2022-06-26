@@ -1,59 +1,51 @@
 import React, { useState, useEffect } from "react";
-import Navbar from './components/Navbar';
-import RecipeCard from './components/RecipeCard';
-import RecipeList from './components/RecipeList'
-import Login from './components/Login'
-import "./App.css"
+import Navbar from "./components/Navbar";
+import RecipeList from "./components/RecipeList";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp"
+import "./App.css";
 
 const App = () => {
-
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
 
-  const [formData, setFormData] = useState([])
-  const [errors, setErrors] = useState(false)
+  const [formData, setFormData] = useState([]);
+  const [errors, setErrors] = useState(false);
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    fetch("/authorized_user")
-    .then((res) => {
+    fetch("/authorized_user").then((res) => {
       if (res.ok) {
-        res.json()
-        .then((user) => {
-          setIsAuthenticated(true);
-          setUser(user);
+        res.json().then((user) => {
+          setCurrentUser(user);
         });
       }
     });
 
-    // fetch('/recipes')
-    // .then(res => res.json())
-    // .then(setRecipes);
-
-  },[]);
-
+    fetch("/recipes")
+      .then((res) => res.json())
+      .then(setRecipes);
+  }, []);
 
   // Reroute user to <Login /> Component if not authenticated
-  if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
+  if (!currentUser)
+    return (
+      <>
+        <Login error={"please login"} setCurrentUser={setCurrentUser} />
+
+        <SignUp setCurrentUser={setCurrentUser} />
+      </>
+    );
 
   return (
     <div>
-      <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated}/>
+      <Navbar setCurrentUser={setCurrentUser} />
       <RecipeList />
 
-      {/* <RecipeCard /> */}
-      
-      {/* {filteredRecipes.map((recipe) => { 
-        return <RecipeCard delete_recipe={delete_recipe} recipe={recipe} />;
-      })} */}
-      <div className="main">
-
-      </div>
+      <div className="main"></div>
     </div>
-  )
-}
+  );
+};
 
 export default App;
-
