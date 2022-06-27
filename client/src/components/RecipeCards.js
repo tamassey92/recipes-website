@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RecipeCard from "./RecipeCard";
 
-function RecipeCards() {
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    fetch(`/recipes`)
-      .then((r) => r.json())
-      .then((data) => setRecipes(data));
-  }, []);
+function RecipeCards({recipes}) {
 
   return (
     <div>

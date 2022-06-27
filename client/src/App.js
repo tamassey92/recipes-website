@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp"
-import RecipeCard from "./components/RecipeCard";
+import Search from "./components/Search";
 import "./App.css";
 import RecipeCards from "./components/RecipeCards";
 
@@ -29,6 +29,10 @@ const App = () => {
       .then(setRecipes);
   }, []);
 
+  useEffect(() => {
+    setFilteredRecipes(recipes);
+  }, [recipes]);
+
   function handleRecSearch(e) {
     if (e.target.value !== undefined) {
       const filteredRec = recipes.filter((recipe) => {
@@ -44,9 +48,7 @@ const App = () => {
       setFilteredRecipes(recipes);
     }
   }
-  useEffect(() => {
-    setFilteredRecipes(recipes);
-  }, [recipes]);
+
 
   // Reroute user to <Login /> Component if not authenticated
   if (!currentUser)
@@ -61,12 +63,8 @@ const App = () => {
   return (
     <div className="main">
       <Navbar setCurrentUser={setCurrentUser} />
-      {/* <Search handleRecSearch={handleRecSearch} /> */}
-      {/* <RecipeList /> */}
-      {/* {filteredRecipes.map((recipe) => { 
-        return <RecipeCard recipe={recipe} />;
-      })} */}
-      <RecipeCards/>
+      <Search handleRecSearch={handleRecSearch} />
+      <RecipeCards recipes={filteredRecipes}/>
 
     </div>
   );
