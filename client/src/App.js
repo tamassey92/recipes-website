@@ -3,6 +3,9 @@ import Navbar from "./components/Navbar";
 import RecipeList from "./components/RecipeList";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp"
+import Search from "./components/Search";
+import RecipeCard from "./components/RecipeCard";
+import { TextField } from "@mui/material";
 import "./App.css";
 
 const App = () => {
@@ -28,6 +31,25 @@ const App = () => {
       .then(setRecipes);
   }, []);
 
+  function handleRecSearch(e) {
+    if (e.target.value !== undefined) {
+      const filteredRec = recipes.filter((recipe) => {
+        return (
+          recipe.name.toLowerCase().includes(e.target.value.toLowerCase()) 
+          ||
+          recipe.link.toLowerCase().includes(e.target.value.toLowerCase())
+        );
+      });
+      setFilteredRecipes(filteredRec);
+    }
+    else {
+      setFilteredRecipes(recipes);
+    }
+  }
+  useEffect(() => {
+    setFilteredRecipes(recipes);
+  }, [recipes]);
+
   // Reroute user to <Login /> Component if not authenticated
   if (!currentUser)
     return (
@@ -41,7 +63,11 @@ const App = () => {
   return (
     <div className="main">
       <Navbar setCurrentUser={setCurrentUser} />
-      <RecipeList />
+      {/* <Search handleRecSearch={handleRecSearch} /> */}
+      {/* <RecipeList /> */}
+      {filteredRecipes.map((recipe) => { 
+        return <RecipeCard recipe={recipe} />;
+      })}
 
     </div>
   );

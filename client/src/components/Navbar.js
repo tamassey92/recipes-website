@@ -34,7 +34,7 @@ const Navbar = ({setCurrentUser }) => {
         </div>
         <ul className={renderClasses()}>
             <li className="link"><a href="#">Home</a></li>
-            <li className="link"><a href="#">Categories</a></li>
+            {/* <li className="link"><a href="#">Categories</a></li> */}
             <li className="link"><a href="#">Add a Recipe</a></li>
             <li className="link"><a href="#">Search</a></li>
             <li className="link"><button onClick={logout}>Logout</button></li>
