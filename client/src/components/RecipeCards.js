@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import RecipeCard from "./RecipeCard";
 
-function RecipeCards({ name, image, link }) {
-    return (
-        <div className="recipecard">
-        <main className="grid">
-            <article>
-                <img src={image} alt={name}></img>
-                <div class="title">
-                    <h3>{name}</h3>
-                    <button>{link}</button>
-                </div>
-            </article>
-        </main>
+function RecipeCards() {
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    fetch(`/recipes`)
+      .then((r) => r.json())
+      .then((data) => setRecipes(data));
+  }, []);
+
+  return (
+    <div>
+      {recipes.map((recipe) => {
+        return <RecipeCard recipe={recipe} />;
+      })}
     </div>
-  )
+  );
 }
 
-export default RecipeCards
+export default RecipeCards;

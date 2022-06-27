@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
-import RecipeList from "./components/RecipeList";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp"
-import Search from "./components/Search";
 import RecipeCard from "./components/RecipeCard";
-import { TextField } from "@mui/material";
 import "./App.css";
+import RecipeCards from "./components/RecipeCards";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -65,25 +63,13 @@ const App = () => {
       <Navbar setCurrentUser={setCurrentUser} />
       {/* <Search handleRecSearch={handleRecSearch} /> */}
       {/* <RecipeList /> */}
-      {filteredRecipes.map((recipe) => { 
+      {/* {filteredRecipes.map((recipe) => { 
         return <RecipeCard recipe={recipe} />;
-      })}
+      })} */}
+      <RecipeCards/>
 
     </div>
   );
 };
 
 export default App;
-
-
-{/* <BrowserRouter>
-<Routes>
-  <Route path="/" element={<Navbar setCurrentUser={setCurrentUser}/>}>
-    <Route index element={<Home />} />
-    <Route path="teams" element={<Teams />}>
-      <Route path=":teamId" element={<Team />} />
-      <Route path="new" element={<NewTeamForm />} />
-    </Route>
-  </Route>
-</Routes>
-</BrowserRouter> */}
