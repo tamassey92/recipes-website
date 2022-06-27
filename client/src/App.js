@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
-import RecipeList from "./components/RecipeList";
+// import RecipeList from "./components/RecipeList";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp"
-import Search from "./components/Search";
+// import Search from "./components/Search";
 import RecipeCard from "./components/RecipeCard";
-import { TextField } from "@mui/material";
+// import { TextField } from "@mui/material";
+// import {Route, Switch} from "react-router-dom"
 import "./App.css";
 
 const App = () => {
+  console.log("Testing")
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
 
@@ -63,12 +65,16 @@ const App = () => {
   return (
     <div className="main">
       <Navbar setCurrentUser={setCurrentUser} />
+      {/* <Switch>
+        <Route path="/allRecipes">
+          <RecipeList/>
+        </Route> */}
       {/* <Search handleRecSearch={handleRecSearch} /> */}
       {/* <RecipeList /> */}
-      {filteredRecipes.map((recipe) => { 
-        return <RecipeCard recipe={recipe} />;
+      {filteredRecipes.map((recipe, i) => { 
+        return <RecipeCard recipe={recipe} key={i} />;
       })}
-
+{/* </Switch> */}
     </div>
   );
 };

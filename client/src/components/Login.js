@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Login({ setCurrentUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+ console.log("send help")
   const [error, setError] = useState([]);
 
   function login(e) {
