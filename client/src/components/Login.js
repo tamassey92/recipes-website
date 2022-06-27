@@ -29,8 +29,9 @@ function Login({ setCurrentUser }) {
   }
 
   return (
-    <>
-      <h1>Recipe Finder</h1>
+    <div className="logo">
+    <i className="fa-solid fa-utensils"></i>
+    <h4>Recipes</h4>
       <h1>Login</h1>
       <form onSubmit={login}>
         <label>
@@ -53,7 +54,7 @@ function Login({ setCurrentUser }) {
         <input type="submit" value="Login!" />
       </form>
       {error ? <div>{error}</div> : null}
-    </>
+    </div>
   );
 }
 

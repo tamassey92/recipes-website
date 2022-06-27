@@ -39,13 +39,25 @@ const App = () => {
     );
 
   return (
-    <div>
+    <div className="main">
       <Navbar setCurrentUser={setCurrentUser} />
       <RecipeList />
 
-      <div className="main"></div>
     </div>
   );
 };
 
 export default App;
+
+
+{/* <BrowserRouter>
+<Routes>
+  <Route path="/" element={<Navbar setCurrentUser={setCurrentUser}/>}>
+    <Route index element={<Home />} />
+    <Route path="teams" element={<Teams />}>
+      <Route path=":teamId" element={<Team />} />
+      <Route path="new" element={<NewTeamForm />} />
+    </Route>
+  </Route>
+</Routes>
+</BrowserRouter> */}

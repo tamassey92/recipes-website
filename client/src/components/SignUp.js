@@ -32,7 +32,7 @@ function SignUp({setCurrentUser}) {
     }
     
     return (
-        <> 
+        <div className="main"> 
         <h1>Sign Up</h1>
         <form onSubmit={onSubmit}>
         <label>
@@ -49,7 +49,7 @@ function SignUp({setCurrentUser}) {
         <input type="submit" value="Sign up!" />
       </form>
       { Object.keys(errors) ? Object.keys(errors).map((key, index) => <div>{key+': ' + Object.values(errors)[index]}</div>) : null }
-      </>
+      </div>
     )
 }
 
