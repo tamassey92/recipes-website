@@ -6,7 +6,7 @@ function RecipeCards({recipes, delete_recipe}) {
   return (
     <div>
       {recipes.map((recipe) => {
-        return <RecipeCard delete_recipe={delete_recipe} recipe={recipe} />;
+        return <RecipeCard key={recipe.id} delete_recipe={delete_recipe} recipe={recipe} />;
       })}
     </div>
   );

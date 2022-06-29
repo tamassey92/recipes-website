@@ -8,7 +8,7 @@ function RecipeCard({recipe, delete_recipe}) {
         <article>
           <button onClick={() => delete_recipe(recipe)}>Delete</button>
           <img src={recipe.img_url} alt={recipe.name}></img>
-          <div class="title">
+          <div className="title">
             <h3 name={recipe.name}>{recipe.name}</h3>
             <a href={recipe.link}>
             <button>Go To Recipe</button>

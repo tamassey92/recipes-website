@@ -29,9 +29,7 @@ function Login({ setCurrentUser }) {
   }
 
   return (
-    <div className="logo">
-    <i className="fa-solid fa-utensils"></i>
-    <h4>Recipes</h4>
+    <div>
       <h1>Login</h1>
       <form onSubmit={login}>
         <label>

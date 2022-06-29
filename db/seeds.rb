@@ -76,7 +76,7 @@ category_id: meat.id)
 
 f12 = Recipe.create(name: "Chorizo & Egg Chilaquiles", 
 link: "https://www.seriouseats.com/chorizo-egg-salsa-verde-chilaquiles-recipe", 
-img_url: "https://www.seriouseats.com/thmb/cdvqNqgjE7XV1gy95QfE2njwTDw=/880x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__imgs__2017__06__Chilaquiles__20170531_3-6797684ee0524211b290674841b50890.jpeg", 
+img_url: "https://s3-eu-west-1.amazonaws.com/images-marleyspoon-production/media/recipes/64267/main_photos/large/chorizo_egg_black_bean_chilaquiles-686ce5caa1f1b0aad91aa615389a7ca6.jpeg", 
 category_id: meat.id)
 
 f13 = Recipe.create(name: "Egg Salad",
