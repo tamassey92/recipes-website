@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :reviews
   resources :users, only: [:create]
-  resources :recipes, only: [:index, :show]
+  resources :recipes, only: [:index, :show, :destroy]
   resources :categories, only: [:index, :show]
 
   # Initially Authenticate User

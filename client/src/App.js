@@ -7,6 +7,7 @@ import "./App.css";
 import RecipeCards from "./components/RecipeCards";
 
 const App = () => {
+  // console.log(id)
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
 
@@ -49,6 +50,15 @@ const App = () => {
     }
   }
 
+  const delete_recipe = function(recipe) {
+    fetch(`/recipes/${recipe.id}`, {
+      method: "DELETE",
+    })
+      // DELETE does not need a response, in fact it seems to hate a response
+      // .then((r) => r.json())
+      .then(setRecipes([...recipes.filter((item) => item.name !== recipe.name)]))
+  }
+
 
   // Reroute user to <Login /> Component if not authenticated
   if (!currentUser)
@@ -64,7 +74,7 @@ const App = () => {
     <div className="main">
       <Navbar setCurrentUser={setCurrentUser} />
       <Search handleRecSearch={handleRecSearch} />
-      <RecipeCards recipes={filteredRecipes}/>
+      <RecipeCards delete_recipe={delete_recipe} recipes={filteredRecipes}/>
 
     </div>
   );

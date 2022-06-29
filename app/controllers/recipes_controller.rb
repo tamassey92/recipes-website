@@ -9,6 +9,12 @@ class RecipesController < ApplicationController
         render json: recipe
     end
 
+    def destroy
+        recipe = find_recipe
+        recipe.destroy
+        head :no_content
+    end
+
     private
 
     def find_recipe
