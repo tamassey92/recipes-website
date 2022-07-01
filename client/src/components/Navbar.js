@@ -24,6 +24,9 @@ const Navbar = ({ logout, currentUser }) => {
           <NavLink style={{ margin: "10px" }} to="/recipes">
             Recipes
           </NavLink>
+          <NavLink style={{ margin: "10px" }} to="/recipes/new">
+            Add Recipe
+          </NavLink>
           <Link style={{ margin: "10px" }} to="/Home" onClick={logout}>
             Logout
           </Link>

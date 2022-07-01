@@ -8,6 +8,13 @@ class RecipesController < ApplicationController
         recipe = find_recipe
         render json: recipe
     end
+    
+    def create
+        @recipe = Recipe.new(recipe_params)
+        @recipe.save!
+        render json: @recipe, status: :created
+
+    end
 
     def destroy
         recipe = find_recipe
@@ -19,6 +26,10 @@ class RecipesController < ApplicationController
 
     def find_recipe
         Recipe.find(params[:id])
+    end
+
+    def recipe_params
+        params.permit(:name, :img_url, :link, :category_id)
     end
     
 end

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import Search from "./Search";
 import RecipeCards from "./RecipeCards";
 
-function Recipes() {
-  const [recipes, setRecipes] = useState([]);
+function Recipes({setRecipes, recipes}) {
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
 
   useEffect(() => {
